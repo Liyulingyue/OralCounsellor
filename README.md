@@ -28,7 +28,7 @@ Task列表如下：
 
 部分代码和功能在线调试环境见 [DEMO of OralCounsellor](https://aistudio.baidu.com/aistudio/projectdetail/6559166)
 
-本阶段项目主要合作人如下：@Liyulingyue , @mrcangye, @ccsuzzh, @gouzil, @Tomoko-hjf
+本阶段项目主要合作人如下：[@Liyulingyue](https://github.com/Liyulingyue/), [@mrcangye](https://github.com/mrcangye/), [@ccsuzzh](https://github.com/ccsuzzh/), [@gouzil](https://github.com/gouzil/), [@Tomoko-hjf](https://github.com/Tomoko-hjf/)
 
 ## 项目计划
 
