@@ -22,6 +22,8 @@ Task列表如下：
 - [x] 主模块Gradio界面
 - [ ] 语音质量Gradio界面
 - [ ] 语音识错Gradio界面
+- [ ] 将语音质量评价应用于整个对话结束后的评价中，并构造Gradio界面
+- [ ] 将自动识错应用于对话过程中
 
 部分代码和功能在线调试环境见 [DEMO of OralCounsellor](https://aistudio.baidu.com/aistudio/projectdetail/6559166)
 
