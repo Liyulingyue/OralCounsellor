@@ -26,7 +26,7 @@ Task列表如下：
 - [ ] 将语音质量评价应用于整个对话结束后的评价中，并构造Gradio界面
 - [ ] 将自动识错应用于对话过程中
 
-部分代码和功能在线调试环境见 [DEMO of OralCounsellor](https://aistudio.baidu.com/aistudio/projectdetail/6559166)
+部分代码和功能在线调试环境见 [DEMO of OralCounsellor](https://aistudio.baidu.com/aistudio/projectdetail/6566149)
 
 本阶段项目主要合作人如下：[@Liyulingyue](https://github.com/Liyulingyue/), [@mrcangye](https://github.com/mrcangye/), [@ccsuzzh](https://github.com/ccsuzzh/), [@gouzil](https://github.com/gouzil/), [@Tomoko-hjf](https://github.com/Tomoko-hjf/)
 
