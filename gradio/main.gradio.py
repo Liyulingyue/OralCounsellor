@@ -14,7 +14,7 @@ import gradio as gr
 import librosa
 from utils.asr import speech2text, create_asr_model
 from utils.llm import load_chatGLM, glm_single_QA
-from utils.yiyan import yiyanchat
+# from utils.yiyan import yiyanchat
 
 # global info
 asr_model, output_ir = create_asr_model()
