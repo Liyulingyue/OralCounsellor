@@ -14,4 +14,4 @@
 具体信息参考 https://github.com/openvinotoolkit/openvino_notebooks/tree/main/notebooks/211-speech-to-text 。
 
 ## 关于文心一言API
-请自行申请API，替换对应的KEY即可。调试的时候建议直接注释GLM相关的Import代码和模型创建代码，使用Yiyan进行快速体验和调试。
+在[百度智能云](https://cloud.baidu.com/)可以申请API，申请成功后替换对应的KEY即可。调试的时候建议直接注释GLM相关的Import代码和模型创建代码，使用Yiyan进行快速体验和调试。
