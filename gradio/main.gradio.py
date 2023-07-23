@@ -63,9 +63,9 @@ def fn_generate_topic():
 def fn_make_comment(text, audio):
     # speech2text
     input_text = speech2text(audio, asr_model, output_ir)
-    return score(text, input_text)
+    return fn_make_comment_helper(text, input_text)
 
-def score(text, input_text):
+def fn_make_comment_helper(text, input_text):
     # text generate
     Prompts = f'我想要朗读的文本是：{text}。朗读后，语音转文字的结果是: {input_text}。请结合上述信息, 对我的语法描述、用词准确性、意思相近程度进行评价。并按照满分10分, 给出打分。'
     try:
