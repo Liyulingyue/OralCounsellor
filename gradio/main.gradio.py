@@ -62,12 +62,12 @@ def fn_generate_topic():
 
 def fn_make_comment(text, audio):
     # speech2text
-    input_text = speech2text(audio, asr_model, output_ir)
-    return fn_make_comment_helper(text, input_text)
+    asr_text = speech2text(audio, asr_model, output_ir)
+    return fn_make_comment_helper(text, asr_text)
 
-def fn_make_comment_helper(text, input_text):
+def fn_make_comment_helper(text, asr_text):
     # text generate
-    Prompts = f'我想要朗读的文本是：{text}。朗读后，语音转文字的结果是: {input_text}。请结合上述信息, 对我的语法描述、用词准确性、意思相近程度进行评价。并按照满分10分, 给出打分。'
+    Prompts = f'我想要朗读的文本是：{text}。朗读后，语音转文字的结果是: {asr_text}。请结合上述信息, 对我的语法描述、用词准确性、意思相近程度进行评价。并按照满分10分, 给出打分。'
     try:
         try:
             output_text=glm_single_QA(model,tokenizer,Prompts,2048,2048)
