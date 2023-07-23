@@ -82,3 +82,10 @@ def preprocess_of_gradio_input(audio):
     data, sr = librosa.load(path="input_audio.wav")
     data = librosa.resample(data, sr, target_sr)
     sf.write('input_audio2.wav', data, target_sr, subtype='PCM_24')
+
+# 语音转文字
+def speech2text(audio, asr_model, output_ir, file_name='input_audio2.wav'):
+    preprocess_of_gradio_input(audio)
+    audio = preprocess_of_wav(file_name)
+    transcription = asr(asr_model, output_ir, audio)
+    return transcription

@@ -12,7 +12,7 @@ if 1:
 
 import gradio as gr
 import librosa
-from utils.asr import preprocess_of_gradio_input, create_asr_model, preprocess_of_wav, asr
+from utils.asr import speech2text, create_asr_model
 from utils.llm import load_chatGLM, glm_single_QA
 # from utils.yiyan import yiyanchat
 
@@ -24,10 +24,7 @@ def chat_via_audio(audio, input_text, chat_history, cb_use_textinput):
     # prepare the input
     if not cb_use_textinput:
         # speech2text
-        preprocess_of_gradio_input(audio)
-        audio = preprocess_of_wav('input_audio2.wav')
-        transcription = asr(asr_model, output_ir, audio)
-        input_text = transcription
+        input_text = speech2text(audio, asr_model, output_ir)
     else:
         input_text = input_text
     # text generate
@@ -65,13 +62,12 @@ def fn_generate_topic():
 
 def fn_make_comment(text, audio):
     # speech2text
-    preprocess_of_gradio_input(audio)
-    audio = preprocess_of_wav('input_audio2.wav')
-    transcription = asr(asr_model, output_ir, audio)
-    input_text = transcription
+    asr_text = speech2text(audio, asr_model, output_ir)
+    return fn_make_comment_helper(text, asr_text)
 
+def fn_make_comment_helper(text, asr_text):
     # text generate
-    Prompts = '我想要朗读的文本是：' + text + "。朗读后，语音转文字的结果是" + input_text + "。请结合上述信息，对我的发音进行评价。并按照满分10分，给出打分。"
+    Prompts = f'我想要朗读的文本是：{text}。朗读后，语音转文字的结果是: {asr_text}。请结合上述信息, 对我的语法描述、用词准确性、意思相近程度进行评价。并按照满分10分, 给出打分。'
     try:
         try:
             output_text=glm_single_QA(model,tokenizer,Prompts,2048,2048)
@@ -83,10 +79,7 @@ def fn_make_comment(text, audio):
 
 def fn_correct_asr(audio):
     # speech2text
-    preprocess_of_gradio_input(audio)
-    audio = preprocess_of_wav('input_audio2.wav')
-    transcription = asr(asr_model, output_ir, audio)
-    input_text = transcription
+    input_text = speech2text(audio, asr_model, output_ir)
 
     # text generate
     Prompts = '我在朗读英语，我的发音或者语音识别软件可能有点问题。请尝试将识别结果修正为我想要表达的内容。语音识别内容是' + input_text + "。请对识别结果进行修正。请不要重复我对你的要求，也不要对语音内容进行回复，输出修正后的识别结果即可。"
